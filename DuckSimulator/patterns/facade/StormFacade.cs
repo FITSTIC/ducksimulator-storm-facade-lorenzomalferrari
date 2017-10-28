@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 /// <summary>
 /// Interfaccia del sistema Stormo.
@@ -46,27 +47,76 @@ public interface IStorm<Tduck> where Tduck : Duck, new()
 
 public class Storm<Tduck> : IStorm<Tduck> where Tduck : Duck, new()
 {
+    private List<Tduck> papere;
+    // pos su asse X e Y + distanza totale
+    private double posX, posY, totDist;
+    //costruttore
     public Storm()
     {
-
+        papere = new List<Tduck>();
     }
-    public List<Tduck> Ducks => throw new System.NotImplementedException();
+    public List<Tduck> Ducks => papere;
 
-    public double PositionX => throw new System.NotImplementedException();
+    public double PositionX => Math.Round(posX, 1);
 
-    public double PositionY => throw new System.NotImplementedException();
+    public double PositionY => Math.Round(posY, 1);
 
-    public double LineDistanceFromStart => throw new System.NotImplementedException();
+    public double LineDistanceFromStart
+    {
+        get
+        {
+            //Genero un numero con la virgola e successivamente arrotondo le cifre decimali
+            double x = Math.Sqrt((PositionX * PositionX) + (PositionY * PositionY));
+            return Math.Round(x, 2);
+        }
+    }
 
-    public double TotalDistance => throw new System.NotImplementedException();
+    public double TotalDistance => Math.Round(totDist, 1);
 
     public void FillStorm(int nDucks)
     {
-        throw new System.NotImplementedException();
+        if (nDucks < 1)
+        {
+            throw new ArgumentException("Parametro d'ingresso non valido.");
+        }
+
+        for (int i = 0; i < nDucks; i++)
+        {
+            papere.Add(new Tduck());
+        }
     }
 
     public void Migrate(Direction dir, double distance)
     {
-        throw new System.NotImplementedException();
+        if (papere == null || papere.Count == 0)
+        {
+            throw new ArgumentException("ATTENZIONE: LO STORMO VA RIEMPITO.");
+        }
+
+        switch (dir)
+        {
+            case Direction.NORD:
+                posY += distance;
+                break;
+            case Direction.SUD:
+                posY += distance * -1;
+                break;
+            case Direction.EST:
+                posX += distance;
+                break;
+            case Direction.OVEST:
+                posX += distance * -1;
+                break;
+            default:
+                throw new Exception("ATTENZIONE: DIREZIONE NON VALIDA!");
+        }
+
+        totDist += distance;
+
+        foreach (Tduck p in papere)
+        {
+            p.Fly(distance);
+            (p as Duck).CurrentDirection = dir;
+        }
     }
 }

@@ -38,6 +38,7 @@ namespace FacadeTest
             Storm<MallardDuck> storm = new Storm<MallardDuck>();
             storm.FillStorm(nDucks);
 
+            //migrazione
             storm.Migrate(Direction.NORD, 25.3);
             storm.Migrate(Direction.OVEST, 25.3);
             storm.Migrate(Direction.SUD, 25.3);
@@ -47,6 +48,7 @@ namespace FacadeTest
             Assert.AreEqual(0d, storm.PositionY);
             Assert.AreEqual(0d, storm.LineDistanceFromStart);
 
+            //altra migrazione
             storm.Migrate(Direction.NORD, 25.3);
             storm.Migrate(Direction.EST, 67.3);
             
@@ -75,7 +77,8 @@ namespace FacadeTest
             {
                 storm.Migrate(Direction.NORD, 25.3);
                 Assert.Fail();
-            }catch(Exception){
+            }
+            catch(Exception){
                 
             }
 
