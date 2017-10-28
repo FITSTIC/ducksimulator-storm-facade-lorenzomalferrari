@@ -115,7 +115,7 @@ public class Storm<Tduck> : IStorm<Tduck> where Tduck : Duck, new()
 
         foreach (Tduck p in papere)
         {
-            p.Fly(distance);
+            //p.Fly(distance);
             (p as Duck).CurrentDirection = dir;
         }
     }
