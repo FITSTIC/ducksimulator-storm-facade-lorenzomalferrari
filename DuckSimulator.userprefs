@@ -1,13 +1,13 @@
 ﻿<Properties StartupConfiguration="{F92F5DED-612F-4A77-9F07-AA27B957908C}|Unit test">
-  <MonoDevelop.Ide.Workbench ActiveDocument="DuckSimulator/model/Duck.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FacadeTest/StormTest.cs">
     <Files>
-      <File FileName="FacadeTest/StormTest.cs" Line="81" Column="13" />
+      <File FileName="FacadeTest/StormTest.cs" Line="90" Column="54" />
       <File FileName="DuckSimulator/model/SpecificDucks.cs" Line="1" Column="1" />
       <File FileName="DuckSimulator/model/ExternalModels.cs" Line="1" Column="1" />
       <File FileName="DuckSimulator/model/Enums.cs" Line="1" Column="1" />
       <File FileName="DuckSimulator/patterns/adapter/PigeonAdapter.cs" Line="1" Column="1" />
       <File FileName="DuckSimulator/patterns/facade/StormFacade.cs" Line="118" Column="29" />
-      <File FileName="DuckSimulator/model/Duck.cs" Line="1" Column="1" />
+      <File FileName="DuckSimulator/model/Duck.cs" Line="42" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
